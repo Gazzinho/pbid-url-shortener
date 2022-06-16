@@ -1,0 +1,67 @@
+.App {
+  text-align: center;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  width: 100%;
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-body {
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-top: 4vh;
+  padding-bottom: 4vh;
+  display: flex;
+  flex-direction: column;
+  gap: 6vh;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.UrlShortener form {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+}
+
+.ShortenedUrls {
+  width: 100%;
+}
+
+.ShortenedUrls-Table {
+  width: 100%;
+}
+
+.ShortenedUrls-Table th, .ShortenedUrls-Table td {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.ShortenedUrls-Table td:nth-child(1) {
+  text-align: left;
+}
+
+.ShortenedUrls-Table td:nth-child(2) {
+  text-align: left;
+}
