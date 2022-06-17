@@ -11,6 +11,7 @@ Extensions to this solutions given more time:
 * Add paging to the ShortenedUrls table
 * Make the react front end prettier
 * Add integration tests for the graphql resolvers with something like InMemoryDB
+* Abstract away from MongoDB so it can be swapped out for another DB if needed
 
 ## Usage
 
@@ -44,12 +45,22 @@ Prerequisites:
 3) Run the react-app server
   1) (from project root) `cd react-app`
   2) `yarn install && yarn run build && yarn run start`
-3) Open your browser to http://localhost:3000
+3) Open your browser to http://localhost:3000 and Shorted some URLs!
 4) Optional: Query the graphql directly with Graphqlic at http://localhost:8000/graphql
 
 ## Running tests
 
+### React app tests
 
+1) `cd <project-root>/react-app`
+2) `yarn install`
+3) `yarn run test` (starts the jest watcher)
+
+### GraphQL Server tests
+
+1) `cd <project-root>/server`
+2) `yarn install`
+3) `yarn run test` (or `yarn run testwatch` if you want to run them for every change on saving a file)
 
 ## Tech Used
 
