@@ -7,9 +7,13 @@ import { connectToDatabase } from './graphql/dbConnector';
 
 dotenv.config();
 
-connectToDatabase(process.env.MONGO_DB_URL as string);
+const mongoDbHost = process.env.MONGODB_HOST || "localhostIndex";
+const mongoDbPort = process.env.MONGODB_PORT || 27018;
+const mongoDbDatabase = process.env.MONGODB_DB || "urlShortener";
+const mongoDbConnectUrl = `mongodb://${mongoDbHost}:${mongoDbPort}/${mongoDbDatabase}`;
+connectToDatabase(mongoDbConnectUrl);
 
-const port = process.env.PORT;
+const port = process.env.PORT || 8000;
 
 const app: Express = express();
 

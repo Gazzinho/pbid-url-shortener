@@ -1,0 +1,10 @@
+FROM node:12-alpine
+# Adding build tools to make yarn install work on Apple silicaon / arm64 machines
+RUN apk add --no-cache py-pip g++ make
+WORKDIR /server
+COPY package.json yarn.lock ./
+RUN yarn install
+COPY . .
+# TODO: yarn run build is currently failing on tsc not found error
+# RUN yarn run build
+CMD ["nodemon", "dist/index.js"]

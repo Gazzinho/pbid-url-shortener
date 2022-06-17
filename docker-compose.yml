@@ -1,0 +1,51 @@
+version: "3.8"
+
+services:
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: always
+    volumes:
+      - pbid-graphql-server-volume:/var/lib/data/db
+    ports:
+      - 27018:27017
+
+  pbid-graphql-server:
+    image: node:12-alpine
+    command: sh -c "cd /server && yarn install && yarn run build && yarn run server-start"
+    restart: unless-stopped
+    links:
+      - 'mongo'
+    depends_on:
+      - 'mongodb'
+    build:
+      context: ./server
+      dockerfile: ./server/Dockerfile
+    working_dir: /server
+    volumes:
+      - ./server/:/server
+    ports:
+      - 8000:8000
+    environment:
+      - MONGODB_HOST=mongo
+      - MONGODB_PORT=27017
+      - MAX_GENERATE_SHORTED_URL_ID_RETRY_TIMEOUT=2000
+
+  pbid-react-app:
+    image: node:16-alpine
+    command: sh -c "cd /react-app && yarn install && yarn run build && yarn run start"
+    restart: unless-stopped
+    build:
+      context: ./react-app
+      dockerfile: ./react-app/Dockerfile
+    working_dir: /react-app
+    volumes:
+      - ./react-app/:/react-app
+    ports:
+      - 3000:3000
+    environment:
+      - PBID_GRAPHQL_URL=http://localhost:8000/graphql
+
+volumes:
+  pbid-graphql-server-volume:

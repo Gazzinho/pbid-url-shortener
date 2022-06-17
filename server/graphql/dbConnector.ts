@@ -1,6 +1,7 @@
 import mongoose, { ConnectOptions } from 'mongoose';
 
 export const connectToDatabase = async (connectionUrl: string) => {
+    console.log("Connecting to database at", connectionUrl);
     await mongoose.connect(
         connectionUrl,
         {
