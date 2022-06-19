@@ -5,6 +5,5 @@ WORKDIR /server
 COPY package.json yarn.lock ./
 RUN yarn install
 COPY . .
-# TODO: yarn run build is currently failing on tsc not found error
-# RUN yarn run build
+RUN yarn run build
 CMD ["nodemon", "dist/index.js"]

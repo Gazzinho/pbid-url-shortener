@@ -20,15 +20,13 @@ Prerequisites:
 
 ### Full docker via docker-compose
 
-1) I had some issues with TSC within the docker image build, so the first step is currently to compile the graphql server typescript (TODO: fix this so `docker build` can run `tsc`)
-  1) (from project root) `cd server && yarn install && yarn run build`
-2) Run via docker compose
+1) Run via docker compose
   1) `cd <project-root>` (if you are not already)
   2) `docker-compose up -d`
   3) Optional: monitor the logs `docker-compose logs -f`
 3) Open your browser to http://localhost:3000 and Shorten some URLs!
 
-Optional: Query the graphql directly with Graphqlic at http://localhost:8000/graphql
+Optional: Query the graphql directly with GraphiQL at http://localhost:8000/graphql
 
 ### Hybrid docker/direct commands
 
@@ -46,7 +44,8 @@ Prerequisites:
   1) (from project root) `cd react-app`
   2) `yarn install && yarn run build && yarn run start`
 3) Open your browser to http://localhost:3000 and Shorted some URLs!
-4) Optional: Query the graphql directly with Graphqlic at http://localhost:8000/graphql
+
+Optional: Query the graphql directly with GraphiQL at http://localhost:8000/graphql
 
 ## Running tests
 
