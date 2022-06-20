@@ -38,11 +38,36 @@
   color: #61dafb;
 }
 
+a {
+  color: #3b414e;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  text-decoration: #506083;
+}
+
+.UrlShortener {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 5px;
+  width: 100%;
+}
+
 .UrlShortener form {
   display: flex;
   flex-direction: row;
   gap: 10px;
   justify-content: center;
+}
+
+.UrlShortener .urlToShortenTextInput {
+  width: 75%;
 }
 
 .ShortenedUrls {
@@ -51,11 +76,22 @@
 
 .ShortenedUrls-Table {
   width: 100%;
+  border-collapse: collapse;
+}
+
+.ShortenedUrls-Table thead {
+  background-color: #2399e7;
+  color: #fff;
 }
 
 .ShortenedUrls-Table th, .ShortenedUrls-Table td {
   padding-left: 20px;
   padding-right: 20px;
+  overflow-wrap: anywhere;
+}
+
+.ShortenedUrls-Table tbody tr:nth-of-type(even) {
+  background-color: #d6efff;
 }
 
 .ShortenedUrls-Table td:nth-child(1) {

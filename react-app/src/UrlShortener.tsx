@@ -64,6 +64,7 @@ export function UrlShortener(props: UrlShortenerProps) {
         <div className="UrlShortener" data-testid="UrlShortener">
             <form onSubmit={(event) => handleSubmit(event)}>
                 <input
+                    className="urlToShortenTextInput"
                     data-testid="urlToShortenText"
                     type="text"
                     placeholder={STRINGS.EN.urlShortenerInputPlaceholder}
